@@ -189,6 +189,43 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 6. Inline CTA Button Action Triggers (Scroll to top on desktop, open drawer on mobile)
+  const ctaButtons = document.querySelectorAll('.cta-btn-trigger');
+  ctaButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (window.innerWidth < 768) {
+        // Mobile: Open bottom drawer sheet
+        if (mobileSubmitOverlay && mobileSubmitCard) {
+          mobileSubmitOverlay.classList.add('open');
+          mobileSubmitCard.classList.add('open');
+          const mobileNameInput = document.getElementById('mobile-reg-name');
+          if (mobileNameInput) mobileNameInput.focus();
+        }
+      } else {
+        // Desktop: Smooth scroll to the top form and focus input
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        const desktopNameInput = document.getElementById('reg-name');
+        if (desktopNameInput) {
+          // Add a subtle brief highlight animation on the registration card
+          const regCard = document.querySelector('.register-card');
+          if (regCard) {
+            regCard.style.outline = '3px solid var(--primary-color)';
+            regCard.style.transition = 'outline 0.15s ease-in-out';
+            setTimeout(() => {
+              regCard.style.outline = 'none';
+            }, 1000);
+          }
+          setTimeout(() => {
+            desktopNameInput.focus();
+          }, 600); // Focus after scrolling finishes
+        }
+      }
+    });
+  });
+
   // Check if user is already registered (display small sticky status)
   const savedReg = localStorage.getItem('primestock_registration');
   if (savedReg) {
