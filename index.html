@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masterclass on Intraday Options Buying - PrimeStock Research</title>
+  <meta name="description" content="Learn high-probability trading strategies & risk management rules from Animesh Kumar. Over 100k+ learners already enrolled.">
+  <meta name="keywords" content="intraday trading, options buying, stock market, trading masterclass, prime stock research">
+  <meta name="author" content="PrimeStock Research">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23FF7700%22/><path d=%22M20 70L40 45L60 55L80 30%22 stroke=%22white%22 stroke-width=%2210%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo-container">
+        <!-- Upward Chart Trend SVG Logo -->
+        <svg class="logo-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px;">
+          <rect width="32" height="32" rx="8" fill="#FF7700"/>
+          <path d="M8 24V14L14 19L20 12L24 16V24H8Z" fill="white" fill-opacity="0.3"/>
+          <path d="M8 20L13 14.5L18.5 19L24 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 11H19.5M24 11V15.5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-text">PrimeStock<span>Research</span></span>
+      </div>
+      <div class="sebi-badge">
+        <span class="sebi-dot"></span>
+        SEBI Registered Analyst Style Disclaimer
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-header text-center">
+        <h1 class="hero-title">Masterclass on <span class="text-orange">Intraday Options Buying</span></h1>
+        <p class="hero-subtitle">Over <span class="text-orange font-extrabold">100k learners</span> already enrolled in the masterclass.</p>
+      </div>
+
+      <div class="hero-layout">
+        <!-- Hero Details Column -->
+        <div class="hero-details">
+          <!-- Calendar details grid -->
+          <div class="details-grid">
+            <div class="detail-card">
+              <div class="detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+              <div>
+                <p class="detail-label">DATE</p>
+                <p class="detail-value" id="session-date">30 May 2026</p>
+              </div>
+            </div>
+
+            <div class="detail-card">
+              <div class="detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div>
+                <p class="detail-label">TIME</p>
+                <p class="detail-value">02:00 PM IST</p>
+              </div>
+            </div>
+
+            <div class="detail-card">
+              <div class="detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="detail-label">LANGUAGE</p>
+                <p class="detail-value">Hindi & English</p>
+              </div>
+            </div>
+
+            <div class="detail-card">
+              <div class="detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 2h14M5 22h14M19 2v3.76a6 6 0 0 1-1.76 4.24l-3.48 3.48a2 2 0 0 0 0 2.83l3.48 3.48A6 6 0 0 1 19 18.24V22M5 2v3.76a6 6 0 0 0 1.76 4.24l3.48 3.48a2 2 0 0 1 0 2.83l-3.48 3.48A6 6 0 0 0 5 18.24V22"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="detail-label">DURATION</p>
+                <p class="detail-value">2+ Hours</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Proof -->
+          <div class="trust-badge-container">
+            <div class="trust-avatars">
+              <svg viewBox="0 0 120 40" style="width: 120px; height: 40px;">
+                <circle cx="20" cy="20" r="18" fill="#FF7700" stroke="white" stroke-width="2"/>
+                <text x="20" y="25" fill="white" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">A</text>
+                <circle cx="45" cy="20" r="18" fill="#041C33" stroke="white" stroke-width="2"/>
+                <text x="45" y="25" fill="white" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">R</text>
+                <circle cx="70" cy="20" r="18" fill="#1E293B" stroke="white" stroke-width="2"/>
+                <text x="70" y="25" fill="white" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">S</text>
+                <circle cx="95" cy="20" r="18" fill="#D66400" stroke="white" stroke-width="2"/>
+                <text x="95" y="25" fill="white" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">M</text>
+              </svg>
+            </div>
+            <div>
+              <div class="stars">
+                <!-- 5 stars SVGs -->
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <p class="rating-text">14k+ reviews (4.9 out of 5 stars)</p>
+            </div>
+          </div>
+
+          <!-- Description Hook -->
+          <div class="callout-box">
+            Learn from <b>Animesh Kumar's</b> expertise in trading, having taught over 10,000+ students and accumulated <span class="text-orange font-extrabold">15 years of experience.</span>
+          </div>
+        </div>
+
+        <!-- Registration Form Column -->
+        <div class="register-card">
+          <div class="register-card-header">
+            <div class="price-container">
+              <span class="price-free">FREE</span>
+              <span class="price-original">₹999</span>
+            </div>
+            <div class="timer-box">
+              Offer Expires in <span id="timer-countdown">10:00</span>
+            </div>
+          </div>
+
+          <form id="desktop-reg-form">
+            <div class="form-group">
+              <label for="reg-name">Full Name</label>
+              <input type="text" id="reg-name" class="form-input" placeholder="Enter Your Name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-phone">WhatsApp Number</label>
+              <input type="tel" id="reg-phone" class="form-input" placeholder="Enter Your Whatsapp Number" required>
+              <p class="form-help">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:2px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Your details are secure with us.
+              </p>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg hero-reg-trigger">
+              Register Now For Free
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Designed For You -->
+  <section class="navy-section">
+    <div class="container text-center">
+      <h2>This <span class="text-orange">masterclass</span> is designed for You!</h2>
+      <div class="benefits-grid">
+        <!-- Card 1 -->
+        <div class="benefit-card">
+          <div class="benefit-icon-wrapper">
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          </div>
+          <p class="benefit-text">If you are looking to start your intraday trading journey.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="benefit-card">
+          <div class="benefit-icon-wrapper">
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <p class="benefit-text">If you want to create a passive source of income.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="benefit-card">
+          <div class="benefit-icon-wrapper">
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          </div>
+          <p class="benefit-text">If you want to become a full-time professional day trader.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: What Will You Learn -->
+  <section class="navy-section" style="background-color: var(--dark-bg-alt); border-top: 1px solid rgba(255,255,255,0.05)">
+    <div class="container text-center">
+      <h2>What Will You <span class="text-orange">Learn?</span></h2>
+      <div class="outcomes-container">
+        
+        <div class="outcome-row">
+          <div class="outcome-number">1</div>
+          <div class="outcome-content">
+            Discover how to <span>trade with confidence</span> free from fear and greed, and maintain a rich trader's mindset.
+          </div>
+        </div>
+
+        <div class="outcome-row">
+          <div class="outcome-number">2</div>
+          <div class="outcome-content">
+            Capture market moves with our proprietary <span>CASHFLOW Trading Strategy</span>.
+          </div>
+        </div>
+
+        <div class="outcome-row">
+          <div class="outcome-number">3</div>
+          <div class="outcome-content">
+            Learn to identify and capitalize on the <span>BIG Traders' momentum</span> direction with our Accuracy Strategy.
+          </div>
+        </div>
+
+        <div class="outcome-row">
+          <div class="outcome-number">4</div>
+          <div class="outcome-content">
+            Get strategies for trading during <span>flat or consolidation markets</span> and learn how to stay profitable in all market conditions.
+          </div>
+        </div>
+
+        <div class="outcome-row">
+          <div class="outcome-number">5</div>
+          <div class="outcome-content">
+            Apply the rich trader's rules for <span>trading, money management, and psychology</span> with any level of capital.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Meet Your Mentor -->
+  <section class="mentor-section">
+    <div class="container">
+      <div class="mentor-layout">
+        <div class="mentor-image-container">
+          <img src="assets/mentor.png" alt="Animesh Kumar - Intraday Trading Mentor">
+        </div>
+        <div class="mentor-content">
+          <h2>Meet Your <span class="text-orange">Mentor</span></h2>
+          <ul class="mentor-list">
+            <li class="mentor-item">
+              <span class="mentor-bullet">⚫</span>
+              <div>With over <b>15 years in the financial markets</b>, Animesh Kumar is a seasoned <b>Sr. Technical Analyst</b> and Professional Day Trader.</div>
+            </li>
+            <li class="mentor-item">
+              <span class="mentor-bullet">⚫</span>
+              <div>Managed intraday trading capital exceeding <b>₹10 Crore</b> and mentored 8,000+ traders to success.</div>
+            </li>
+            <li class="mentor-item">
+              <span class="mentor-bullet">⚫</span>
+              <div>Collaborated with top brokerage firms like Spider Software, JM Financial, Zerodha, Upstox, and Dhan to enhance trading tools.</div>
+            </li>
+            <li class="mentor-item">
+              <span class="mentor-bullet">⚫</span>
+              <div>Specializes in exclusive intraday trading strategies and options buying techniques with a track record of high accuracy.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Certificate -->
+  <section class="certificate-section">
+    <div class="container certificate-layout">
+      <h2>Yes! You will be <span class="text-orange">certified</span> for this Masterclass.</h2>
+      <div class="section-divider"></div>
+      <div class="certificate-preview-box">
+        <img src="assets/certificate.png" alt="Masterclass Completion Certificate Preview">
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="text-center">Frequently Asked <span class="text-orange">Questions</span></h2>
+      <div class="section-divider"></div>
+      
+      <div class="faq-container">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <div class="faq-title"><b>Q:</b> Is it a live or pre-recorded workshop?</div>
+            <div class="faq-icon-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            It is a 100% live interactive workshop.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <div class="faq-title"><b>Q:</b> Is this class for beginners?</div>
+            <div class="faq-icon-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            Yes, this masterclass is perfect for beginners. No prior knowledge of intraday trading or options buying is required.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <div class="faq-title"><b>Q:</b> Will recording be provided?</div>
+            <div class="faq-icon-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            No, recordings will not be provided. This is an interactive live-only class.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <div class="faq-title"><b>Q:</b> How much capital is required to start trading?</div>
+            <div class="faq-icon-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            You can join the masterclass with zero capital for learning purposes. Once you are ready to trade, we recommend starting with a small capital of ₹10,000 - ₹15,000.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <div class="faq-title"><b>Q:</b> Will there be a Q&A session in the class?</div>
+            <div class="faq-icon-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            Yes, we conduct dedicated Q&A sessions at the end of each module to clear all your trading doubts immediately.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          PrimeStock<span>Research</span>
+        </div>
+        <div class="footer-nav">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Refund Policy</a>
+          <a href="mailto:support@imestockresearch.online">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer">
+        <b>Disclaimer:</b> Trading in Equity, Futures, Options, and Commodities involves substantial risk of loss and is not suitable for every investor. The information, strategies, and techniques shared during this masterclass are for educational purposes only and do not constitute direct investment advice. <b>PrimeStock Research (imestockresearch.online)</b> does not guarantee any profits or specific financial outcomes. Please consult a SEBI registered investment advisor before committing real capital.
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 PrimeStock Research. All rights reserved.</p>
+        <p>Domain: imestockresearch.online</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Sticky Bottom Registration Trigger Bar -->
+  <div class="mobile-sticky-bar">
+    <div class="sticky-bar-price">
+      <div class="tag">
+        <b>FREE</b>
+        <span>₹999</span>
+      </div>
+      <div class="sticky-bar-timer">
+        Offer expires in: <span id="sticky-timer-countdown">10:00</span>
+      </div>
+    </div>
+    <button class="btn btn-primary" id="mobile-reg-btn">Register Now</button>
+  </div>
+
+  <!-- Mobile Slide Drawer Form Sheet -->
+  <div class="mobile-submit-overlay" id="mobile-submit-overlay"></div>
+  <div class="mobile-submit-card" id="mobile-submit-card">
+    <div class="mobile-submit-card-header">
+      <h3>Register for Masterclass</h3>
+      <button class="close-mobile-form" id="close-mobile-form">&times;</button>
+    </div>
+    <form id="mobile-reg-form">
+      <div class="form-group">
+        <label for="mobile-reg-name">Full Name</label>
+        <input type="text" id="mobile-reg-name" class="form-input" placeholder="Enter Your Name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="mobile-reg-phone">WhatsApp Number</label>
+        <input type="tel" id="mobile-reg-phone" class="form-input" placeholder="Enter Your Whatsapp Number" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block btn-lg hero-reg-trigger">
+        Register For Free Now
+      </button>
+    </form>
+  </div>
+
+  <!-- Success Modal Popup -->
+  <div class="modal-overlay" id="success-modal-overlay">
+    <div class="success-modal">
+      <div class="success-icon-wrapper">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <h3>Registration Successful!</h3>
+      <p>Thank you, <span id="success-msg-name" class="text-orange font-extrabold"></span>. Your seat for the Masterclass is officially reserved. Check your WhatsApp for the webinar link.</p>
+      <button class="btn btn-primary btn-block" id="close-modal-btn">Got It!</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

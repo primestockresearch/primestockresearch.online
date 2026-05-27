@@ -1,0 +1,16 @@
+{
+  "name": "primestockresearch-landing-page",
+  "version": "1.0.0",
+  "description": "High-converting landing page for PrimeStock Research Masterclass",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y serve ."
+  },
+  "keywords": [
+    "landing-page",
+    "stock-trading",
+    "masterclass"
+  ],
+  "author": "PrimeStock Research",
+  "license": "ISC"
+}
