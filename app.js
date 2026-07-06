@@ -87,16 +87,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeModalBtn = document.getElementById('close-modal-btn');
   const successMessageName = document.getElementById('success-msg-name');
 
-  function validateAndSubmit(e, formId) {
+  async function validateAndSubmit(e, formId) {
     e.preventDefault();
     const form = e.target;
-    const nameInput = form.querySelector('input[type="text"]');
-    const phoneInput = form.querySelector('input[type="tel"]');
-    const segmentInput = form.querySelector('select');
+    const prefix = formId === 'desktop' ? 'reg' : (formId === 'popup' ? 'popup-reg' : 'mobile-reg');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.textContent : 'Register Now';
+
+    const nameInput = document.getElementById(prefix + '-name');
+    const phoneInput = document.getElementById(prefix + '-phone');
+    const segmentInput = document.getElementById(prefix + '-segment');
+    const capitalInput = document.getElementById(prefix + '-capital');
+    const emailInput = document.getElementById(prefix + '-email');
+    const cityInput = document.getElementById(prefix + '-city');
+    const termsInput = document.getElementById(prefix + '-terms');
 
     const name = nameInput ? nameInput.value.trim() : '';
     const phone = phoneInput ? phoneInput.value.trim() : '';
     const segment = segmentInput ? segmentInput.value : '';
+    const capital = capitalInput ? capitalInput.value : '';
+    const email = emailInput ? emailInput.value.trim() : '';
+    const city = cityInput ? cityInput.value.trim() : '';
+    const termsChecked = termsInput ? termsInput.checked : false;
 
     if (!name) {
       showInputError(nameInput, 'Please enter your full name.');
@@ -107,30 +119,83 @@ document.addEventListener('DOMContentLoaded', () => {
       showInputError(phoneInput, 'Please enter a valid 10-digit WhatsApp number.');
       return;
     }
-    if (!segment) {
+    if (!segment && segmentInput) {
       showInputError(segmentInput, 'Please select your preferred segment.');
       return;
     }
-
-    // Save to localStorage
-    localStorage.setItem('primestock_lead', JSON.stringify({
-      name, phone: '+91' + phone, segment,
-      form: formId, timestamp: new Date().toISOString()
-    }));
-
-    // Show success modal
-    if (successMessageName) successMessageName.textContent = name;
-    if (successModalOverlay) successModalOverlay.classList.add('open');
-
-    // Reduce slots
-    if (slotsLeft > 1) {
-      slotsLeft--;
-      sessionStorage.setItem('slots_left', slotsLeft);
-      updateSlots();
+    if (!capital) {
+      showInputError(capitalInput, 'Please select your planned capital range.');
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      showInputError(emailInput, 'Please enter a valid email address.');
+      return;
+    }
+    if (!city) {
+      showInputError(cityInput, 'Please enter your city.');
+      return;
+    }
+    if (!termsChecked) {
+      if (termsInput) {
+        showInputError(termsInput, 'Please agree to the Terms and Conditions.');
+      }
+      return;
     }
 
-    form.reset();
-    closeDrawer();
+    if (submitBtn) {
+      submitBtn.textContent = 'Submitting...';
+      submitBtn.disabled = true;
+    }
+
+    try {
+      const response = await fetch('/api/submit-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone, email, city, capital, segment })
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      // Save to localStorage
+      localStorage.setItem('primestock_lead', JSON.stringify({
+        name, phone: '+91' + phone, segment, capital, email, city,
+        form: formId, timestamp: new Date().toISOString()
+      }));
+
+      // Close popup modal if open
+      closePopupModal();
+
+      // Show success modal
+      if (successMessageName) successMessageName.textContent = name;
+      if (successModalOverlay) successModalOverlay.classList.add('open');
+
+      // Reduce slots
+      if (slotsLeft > 1) {
+        slotsLeft--;
+        sessionStorage.setItem('slots_left', slotsLeft);
+        updateSlots();
+      }
+
+      form.reset();
+      closeDrawer();
+      
+      const submitBtns = document.querySelectorAll('#desktop-reg-form button[type="submit"], #mobile-reg-form button[type="submit"], #popup-reg-form button[type="submit"]');
+      submitBtns.forEach(btn => {
+        btn.textContent = '✅ Already Registered — Register Again';
+      });
+
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting your form. Please try again.');
+    } finally {
+      if (submitBtn) {
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
+      }
+    }
   }
 
   function showInputError(input, message) {
@@ -156,8 +221,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const desktopForm = document.getElementById('desktop-reg-form');
   const mobileForm = document.getElementById('mobile-reg-form');
+  const popupForm = document.getElementById('popup-reg-form');
+
   if (desktopForm) desktopForm.addEventListener('submit', e => validateAndSubmit(e, 'desktop'));
   if (mobileForm) mobileForm.addEventListener('submit', e => validateAndSubmit(e, 'mobile'));
+  if (popupForm) popupForm.addEventListener('submit', e => validateAndSubmit(e, 'popup'));
 
   if (closeModalBtn && successModalOverlay) {
     closeModalBtn.addEventListener('click', () => {
@@ -165,17 +233,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ===== 6. Check If Already Registered =====
-  const savedLead = localStorage.getItem('primestock_lead');
-  if (savedLead) {
-    const lead = JSON.parse(savedLead);
-    const submitBtns = document.querySelectorAll('#desktop-reg-form button[type="submit"], #mobile-reg-form button[type="submit"]');
-    submitBtns.forEach(btn => {
-      btn.textContent = '✅ Already Registered — Get Another Trial';
+  // ===== 6. Auto Popup Lead Form Modal (4-second Delay) =====
+  const popupModalOverlay = document.getElementById('popup-modal-overlay');
+  const closePopupBtn = document.getElementById('close-popup-btn');
+
+  function openPopupModal() {
+    if (popupModalOverlay) {
+      popupModalOverlay.classList.add('open');
+    }
+  }
+
+  function closePopupModal() {
+    if (popupModalOverlay) {
+      popupModalOverlay.classList.remove('open');
+    }
+  }
+
+  // Trigger popup 4 seconds after page load
+  setTimeout(() => {
+    const hasSubmitted = localStorage.getItem('primestock_lead');
+    const hasClosedPopup = sessionStorage.getItem('popup_closed');
+    if (!hasSubmitted && !hasClosedPopup) {
+      openPopupModal();
+    }
+  }, 4000);
+
+  if (closePopupBtn) {
+    closePopupBtn.addEventListener('click', () => {
+      sessionStorage.setItem('popup_closed', 'true');
+      closePopupModal();
     });
   }
 
-  // ===== 7. Ticker Pause on Hover =====
+  if (popupModalOverlay) {
+    popupModalOverlay.addEventListener('click', (e) => {
+      if (e.target === popupModalOverlay) {
+        sessionStorage.setItem('popup_closed', 'true');
+        closePopupModal();
+      }
+    });
+  }
+
+  // ===== 7. Check If Already Registered =====
+  const savedLead = localStorage.getItem('primestock_lead');
+  if (savedLead) {
+    const lead = JSON.parse(savedLead);
+    const submitBtns = document.querySelectorAll('#desktop-reg-form button[type="submit"], #mobile-reg-form button[type="submit"], #popup-reg-form button[type="submit"]');
+    submitBtns.forEach(btn => {
+      btn.textContent = '✅ Already Registered — Register Again';
+    });
+  }
+
+  // ===== 8. Ticker Pause on Hover =====
   const tickerContent = document.querySelector('.ticker-content');
   const tickerTrack = document.querySelector('.ticker-track');
   if (tickerContent && tickerTrack) {
