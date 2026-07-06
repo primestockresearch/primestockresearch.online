@@ -230,49 +230,40 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeModalBtn && successModalOverlay) {
     closeModalBtn.addEventListener('click', () => {
       successModalOverlay.classList.remove('open');
+      document.body.style.overflow = '';
     });
   }
 
-  // ===== 6. Auto Popup Lead Form Modal (4-second Delay) =====
+  // ===== 6. Mandatory Lead Form Modal (Gatekeeper Access) =====
   const popupModalOverlay = document.getElementById('popup-modal-overlay');
-  const closePopupBtn = document.getElementById('close-popup-btn');
 
   function openPopupModal() {
     if (popupModalOverlay) {
       popupModalOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
     }
   }
 
   function closePopupModal() {
     if (popupModalOverlay) {
       popupModalOverlay.classList.remove('open');
+      document.body.style.overflow = '';
     }
   }
 
-  // Trigger popup 4 seconds after page load
-  setTimeout(() => {
-    const hasSubmitted = localStorage.getItem('primestock_lead');
-    const hasClosedPopup = sessionStorage.getItem('popup_closed');
-    if (!hasSubmitted && !hasClosedPopup) {
-      openPopupModal();
+  // Immediately check on page load: If user has NOT submitted lead form, lock page and show mandatory popup
+  const hasSubmitted = localStorage.getItem('primestock_lead');
+  if (!hasSubmitted) {
+    openPopupModal();
+  }
+
+  // Block ESC key if user hasn't submitted form
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !localStorage.getItem('primestock_lead')) {
+      e.preventDefault();
+      e.stopPropagation();
     }
-  }, 4000);
-
-  if (closePopupBtn) {
-    closePopupBtn.addEventListener('click', () => {
-      sessionStorage.setItem('popup_closed', 'true');
-      closePopupModal();
-    });
-  }
-
-  if (popupModalOverlay) {
-    popupModalOverlay.addEventListener('click', (e) => {
-      if (e.target === popupModalOverlay) {
-        sessionStorage.setItem('popup_closed', 'true');
-        closePopupModal();
-      }
-    });
-  }
+  });
 
   // ===== 7. Check If Already Registered =====
   const savedLead = localStorage.getItem('primestock_lead');
